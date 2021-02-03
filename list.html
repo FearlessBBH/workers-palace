@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>活动列表</title>
+  <link rel="stylesheet" href="css/wap-base.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css" />
+  <link rel="stylesheet" href="css/list.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+
+</head>
+
+<body>
+  <script src="js/flexible.js"></script>
+  <div class="wrapper" id="app">
+    <!-- 顶部按钮 -->
+    <div class="column top">
+      <span>上海工匠馆活动预约</span>
+      <a href="http://www.baidu.com">
+        <van-button color="rgb(1,65,134)" @click="handleClick">预约记录</van-button>
+      </a>
+    </div>
+    <!-- 列表 -->
+    <div class="column list">
+      <a :href="item.viewTo" v-for="item in list">
+        <div class="item">
+          <van-image width="95%" height="3rem" :src="item.imgUrl"></van-image>
+          <div class="grid">
+            <span class="title">{{item.title.slice(0,36)}}</span>
+            <van-tag plain style="height: .8rem;" :type="item.status===1?'danger':'success'">{{item.status===1?'已结束':'进行中'}}</van-tag>
+          </div>
+        </div>
+    </div>
+    </a>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        list: [{
+          viewTo: 'http://www.baidu.com',
+          imgUrl: 'imgs/img1.jpg',
+          title: '活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称',
+          status: 1,
+        }, {
+          viewTo: 'http://www.baidu.com',
+          imgUrl: 'imgs/img2.jpg',
+          title: '活动名称活动名称活动名称活动名称活动名称活动名称活动名称活动名称',
+          status: 0,
+        }, {
+          viewTo: 'http://www.baidu.com',
+          imgUrl: '',
+          title: '活动名称活动名称活动名称活动名称',
+          status: 0
+        }, {
+          viewTo: 'http://www.baidu.com',
+          imgUrl: '',
+          title: '活动名称活动名称活动名称活动名称称活动名称',
+          status: 1
+        }, {
+          viewTo: 'http://www.baidu.com',
+          imgUrl: '',
+          title: '活动名称活动名称活动名称活动名称',
+          status: 1
+        }]
+      },
+      methods: {
+        handleClick(val) {
+          console.log('aaaa')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
